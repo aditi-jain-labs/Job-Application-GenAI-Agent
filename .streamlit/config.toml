@@ -1,0 +1,14 @@
+[theme]
+base = "light"
+baseFontSize = 18
+primaryColor = "#2563eb"
+
+[client]
+toolbarMode = "minimal"
+showSidebarNavigation = false
+
+[server]
+headless = true
+
+[browser]
+gatherUsageStats = false

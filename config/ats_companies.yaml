@@ -1,0 +1,289 @@
+# ats_companies.yaml: companies whose jobs are read from the free public job feeds of Greenhouse, Lever and
+# Ashby (run.py --ats, the dashboard's Company boards tab). These finds are listed for you to apply to.
+# The list below is a working default (UK tech, fintech and AI companies): change these to suit you.
+# Each company needs "ats" (greenhouse, lever or ashby) and "slug" (the name in its job board URL, e.g.
+# boards.greenhouse.io/<slug>). Companies marked "not on Greenhouse/Lever/Ashby" are skipped.
+# Only UK roles are kept.
+
+settings:
+  first_run_days: 7      # first run: jobs posted in the last 7 days
+  daily_days: 1          # after that: jobs posted in the last day
+  auto_apply: true       # apply when the form only asks things covered by answers.yaml; otherwise list for manual apply
+
+companies:
+  # Fintech
+  - name: Monzo
+    ats: greenhouse
+    slug: monzo
+  - name: Wise
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Starling Bank
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: GoCardless
+    ats: greenhouse
+    slug: gocardless
+  - name: Checkout.com
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Zopa
+    ats: lever
+    slug: zopa
+  - name: OakNorth
+    ats: ashby
+    slug: oaknorth
+  - name: ClearScore
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Cleo
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Moneybox
+    ats: ashby
+    slug: moneybox
+  - name: Thought Machine
+    ats: ashby
+    slug: thought-machine
+  - name: Tide
+    ats: greenhouse
+    slug: tide
+  - name: Lendable
+    ats: ashby
+    slug: lendable
+  - name: Funding Circle
+    ats: ashby
+    slug: fundingcircle
+  - name: Marshmallow
+    ats: ashby
+    slug: marshmallow
+  - name: Zego
+    ats: ashby
+    slug: zego
+  - name: Paddle
+    ats: ashby
+    slug: paddle
+  - name: Stripe
+    ats: greenhouse
+    slug: stripe
+  - name: Plaid
+    ats: ashby
+    slug: plaid
+  # Data and AI companies
+  - name: Faculty
+    ats: ashby
+    slug: faculty
+  - name: Quantexa
+    ats: ashby
+    slug: quantexa
+  - name: Synthesia
+    ats: ashby
+    slug: synthesia
+  - name: ElevenLabs
+    ats: ashby
+    slug: elevenlabs
+  - name: PolyAI
+    ats: greenhouse
+    slug: polyai
+  - name: Wayve
+    ats: ashby
+    slug: wayve
+  - name: Tractable
+    ats: ashby
+    slug: tractable
+  - name: Peak AI
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Google DeepMind
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Databricks
+    ats: greenhouse
+    slug: databricks
+  - name: Snowflake
+    ats: ashby
+    slug: snowflake
+  - name: Datadog
+    ats: greenhouse
+    slug: datadog
+  - name: MongoDB
+    ats: greenhouse
+    slug: mongodb
+  - name: Elastic
+    ats: greenhouse
+    slug: elastic
+  - name: Cloudflare
+    ats: greenhouse
+    slug: cloudflare
+  - name: Palantir
+    ats: lever
+    slug: palantir
+  - name: Darktrace
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Snyk
+    ats: ashby
+    slug: snyk
+  # Data and AI consultancies
+  - name: Mesh-AI
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Datatonic
+    ats: ashby
+    slug: datatonic
+  - name: Advancing Analytics
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Kubrick Group
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Thoughtworks
+    ats: greenhouse
+    slug: thoughtworks
+  # Consumer tech and scale-ups
+  - name: Deliveroo
+    ats: greenhouse
+    slug: deliveroo
+  - name: Ocado Technology
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Octopus Energy
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Kraken Technologies
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Trainline
+    ats: ashby
+    slug: trainline
+  - name: Skyscanner
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Depop
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Gousto
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Motorway
+    ats: ashby
+    slug: motorway
+  - name: Multiverse
+    ats: ashby
+    slug: multiverse
+  - name: Bloom & Wild
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Cera
+    ats: "not on Greenhouse/Lever/Ashby"
+  # South West
+  - name: OVO
+    ats: greenhouse
+    slug: ovoenergy
+  - name: Graphcore
+    ats: greenhouse
+    slug: graphcore
+  - name: Ultraleap
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Immersive Labs
+    ats: ashby
+    slug: immersivelabs
+  - name: Hargreaves Lansdown
+    ats: "not on Greenhouse/Lever/Ashby"
+  # AI labs and AI-first companies (many hire forward deployed / applied AI roles)
+  - name: OpenAI
+    ats: ashby
+    slug: openai
+  - name: Anthropic
+    ats: greenhouse
+    slug: anthropic
+  - name: Cohere
+    ats: ashby
+    slug: cohere
+  - name: Mistral AI
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Scale AI
+    ats: greenhouse
+    slug: scaleai
+  - name: Hugging Face
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Harvey
+    ats: ashby
+    slug: harvey
+  - name: Glean
+    ats: greenhouse
+    slug: gleanwork
+  - name: Sierra
+    ats: ashby
+    slug: sierra
+  - name: Decagon
+    ats: ashby
+    slug: decagon
+  - name: Writer
+    ats: ashby
+    slug: writer
+  - name: Luminance
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Robin AI
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Isomorphic Labs
+    ats: greenhouse
+    slug: isomorphiclabs
+  - name: Stability AI
+    ats: greenhouse
+    slug: stabilityai
+  - name: Speechmatics
+    ats: greenhouse
+    slug: speechmatics
+  - name: V7 Labs
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Signal AI
+    ats: ashby
+    slug: signal-ai
+  - name: Tessl
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Anduril
+    ats: greenhouse
+    slug: andurilindustries
+  # Data and AI platforms with UK teams
+  - name: Confluent
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: dbt Labs
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Fivetran
+    ats: greenhouse
+    slug: fivetran
+  - name: Dataiku
+    ats: greenhouse
+    slug: dataiku
+  - name: Celonis
+    ats: greenhouse
+    slug: celonis
+  - name: UiPath
+    ats: ashby
+    slug: uipath
+  - name: Retool
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Vercel
+    ats: greenhouse
+    slug: vercel
+  - name: Supabase
+    ats: ashby
+    slug: supabase
+  - name: Twilio
+    ats: greenhouse
+    slug: twilio
+  - name: Okta
+    ats: greenhouse
+    slug: okta
+  - name: Figma
+    ats: greenhouse
+    slug: figma
+  - name: Notion
+    ats: ashby
+    slug: notion
+  - name: Intercom
+    ats: greenhouse
+    slug: intercom
+  - name: Miro
+    ats: ashby
+    slug: miro
+  - name: Canva
+    ats: "not on Greenhouse/Lever/Ashby"
+  # Consultancies
+  - name: Slalom
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Valtech
+    ats: greenhouse
+    slug: valtech
+  - name: Endava
+    ats: "not on Greenhouse/Lever/Ashby"
+  - name: Capco
+    ats: greenhouse
+    slug: capco
+
+  - name: Spotify
+    ats: lever
+    slug: spotify

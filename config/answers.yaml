@@ -1,0 +1,56 @@
+# answers.yaml: your answers to application form questions. The agent answers form questions ONLY from this
+# file; a required question it can't answer from here means the job is listed for you to apply by hand.
+# Fill in every value that is true for you. Leave a value empty to never answer that question automatically.
+# This is personal data: keep the filled-in file private.
+
+personal:
+  full_name:          # your full name as on your CV
+  email:              # the email address recruiters should use
+  phone:              # phone number with country code
+  location:           # city, country
+  linkedin_url:       # full LinkedIn profile URL
+  github_url:         # GitHub or portfolio URL (optional)
+
+work_rights:
+  right_to_work_uk:            # your answer to "Do you have the right to work in the UK?", in your own words
+  requires_sponsorship:        # true or false: do you need visa sponsorship now or in future?
+  current_visa:                # your visa type and expiry date, if any
+  sc_clearance_held:           # Yes or No: do you hold SC clearance now?
+  willing_to_undergo_sc:       # Yes or No: are you willing to go through SC vetting?
+  right_to_work_short:         # a short answer for small text boxes (e.g. "Yes" or "Yes, with a visa")
+  right_to_work_option_hints: []   # words to look for in drop-down options for right to work (e.g. the visa name)
+
+job:
+  notice_period:               # e.g. "1 month"
+  salary_expectation:          # the figure or range you want to give
+  current_salary:              # leave empty if you prefer not to say
+  willing_to_relocate:         # true or false
+  work_pattern:                # e.g. "Hybrid" or "Remote"
+  earliest_start_date:         # e.g. "1 month after offer"
+  office_days:                 # how many office days a week you can do
+  office_days_question_answer: # Yes or No to "Can you be in the office N days a week?"
+
+application:
+  how_heard:                   # your answer to "How did you hear about this job?"
+  how_heard_option_hints: []   # words to look for in its drop-down options (e.g. "job board")
+  how_heard_other_text:        # text for an "Other, please specify" box
+  accept_privacy_notices:      # Yes or No to "I have read the privacy notice" acknowledgements
+  accept_ai_note_taker:        # Yes or No to "an AI note taker may be used in your interview"
+  existing_customer:           # usually No: "Are you a customer of ours?"
+
+experience:
+  years_total:                 # whole number of years of relevant experience
+  years_python:                # whole numbers; leave empty for skills you don't have
+  recent_python_experience:    # Yes or No
+  years_sql:
+  years_pyspark:
+  years_aws:
+  years_azure:
+  highest_degree:              # e.g. "MSc Computer Science"
+  certifications:              # comma separated
+
+equal_opportunities:           # optional diversity questions; "Prefer not to say" is always fine
+  gender:
+  ethnicity:
+  disability:
+  age_range:

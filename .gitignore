@@ -1,0 +1,24 @@
+# What the agent writes (personal data)
+output/
+cache/
+backups/
+browser_profile/
+applied.csv
+
+# Python and virtual environments
+__pycache__/
+*.pyc
+.venv/
+venv/
+.dashboard-venv/
+
+# macOS
+.DS_Store
+
+# Your filled-in CVs are personal: only the README in master_cvs/ is shared
+master_cvs/*.docx
+master_cvs/*.pdf
+
+# The template files (.env, profile.md, config/answers.yaml, config/referrals.yaml, projects/project_template.md)
+# are NOT ignored, so a fresh clone has them. After filling them in, stop git tracking your changes:
+#   git update-index --skip-worktree .env profile.md config/answers.yaml config/referrals.yaml

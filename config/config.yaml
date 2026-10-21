@@ -1,0 +1,152 @@
+# config.yaml: the main settings. What to search for, which jobs to skip, how many applications a day,
+# when to apply, and which Claude models to use.
+# The values below are working defaults for a UK data and AI engineer: change these to suit you.
+# Every personal setting is marked "# CHANGE THIS:". dry_run is true, so nothing is applied to until you
+# have checked the outputs and set it to false yourself.
+
+candidate:
+  # CHANGE THIS: your full name. Used to sign cover letters and in the CV file name recruiters see.
+  candidate_name: ""
+  # CHANGE THIS: your years of experience. A listing asking for more counts as a missed qualification (0 = no check).
+  years_experience: 0
+
+sources:
+  reed: true
+  adzuna: false        # turn on once you pay for Adzuna
+
+search:
+  # CHANGE THIS: the job titles to search for, one per line. The title filter accepts close variants.
+  titles:
+    - Senior Data Engineer
+    - Data Engineer
+    - Analytics Engineer
+    - AI Data Engineer
+    - Data Platform Engineer
+    - AI Engineer
+    - GenAI Engineer
+    - Forward Deployed Engineer
+    - Data Scientist
+    - Machine Learning Engineer
+    - Data Consultant
+    - AI Consultant
+    - Data Analyst
+    - Senior Data Analyst
+    - Insights Analyst
+    - Product Analyst
+    - BI Analyst
+    - Analytics Consultant
+    - AI Analyst
+    - AI Solutions Engineer
+    - AI Specialist
+    - Prompt Engineer
+    - Applied AI Engineer
+    - Applied AI
+    - Forward Deployed Software Engineer
+    - Forward Deployed AI Engineer
+    - AI Deployment Engineer
+    - Deployment Strategist
+    - AI Solutions Architect
+    - AI Solutions Consultant
+    - Solutions Engineer (AI or Data)
+    - Customer Engineer (AI or Data)
+    - Data
+  # CHANGE THIS: where to search: a country or a city, e.g. London or Manchester
+  location: United Kingdom
+  distance_miles: 50
+  # CHANGE THIS: skip jobs whose stated salary tops out below this (jobs with no salary are kept)
+  min_salary: 50000
+  include_remote: true
+  # CHANGE THIS: set to false if you also want contract or fixed term work
+  permanent_only: true         # skip contract, day rate, umbrella, IR35, temporary and fixed term roles
+  # CHANGE THIS: skip any job whose title contains one of these words
+  exclude_title_words:
+    - Junior
+    - Graduate
+    - Intern
+    - Internship
+    - Trainee
+    - Apprentice
+    - Apprenticeship
+    - Entry Level
+    - Placement
+    - '2027'
+run:
+  first_run_days: 14
+  daily_days: 1
+  # CHANGE THIS: lowest match score (0 to 100) the agent will apply to
+  match_threshold: 65
+  software_engineer_threshold: 80   # titles with "Software Engineer" or "Developer" (must also say Data, AI or ML)
+  # CHANGE THIS: most applications in one day
+  daily_cap: 25
+  max_per_agency_per_week: 5
+  # Duplicates: titles that are the same apart from a location or tag
+  # (e.g. "Big 4", "London", "Remote", "Hybrid") from the same company count as one job. Tech tags like "(AWS)" vs "(Azure)" are NOT ignored, since those are different jobs
+  fuzzy_title_duplicates: true
+  # Job boards that repost other employers' jobs: the limit applies to the real employer.
+  # If no employer is named, the job counts against the board's own limit.
+  job_boards:
+    - eFinancialCareers
+    - Appcast
+  # Spacing between applications, so it looks like a person, not a bot
+  min_gap_minutes: 3         # shortest wait between two applications
+  max_gap_minutes: 8         # longest wait; each gap is random between these
+  max_per_hour: 8            # never more than this many in one hour
+  # CHANGE THIS: only apply in these hours; leftovers roll to the next run
+  active_hours: "08:00-23:00"
+  # true: fill in forms and take screenshots, but never submit. Set to false only after checking the outputs.
+  dry_run: true
+
+# Claude runs through `claude -p` (your Claude subscription, no API key).
+claude:
+  score_from: 65             # only jobs scoring this on the rules are sent to Claude
+  score_model: sonnet
+  write_model: opus
+  parallel: 4                # Claude scoring calls at once
+
+# CHANGE THIS: phrases that skip a job. "sponsorship" skips jobs that will not sponsor a work visa, and "clearance"
+# skips jobs needing DV security clearance. Remove a whole list (or its entries) if it does not apply to you.
+skip_phrases:
+  sponsorship:
+    - unable to sponsor
+    - cannot sponsor
+    - can't sponsor
+    - not able to sponsor
+    - will not sponsor
+    - do not offer sponsorship
+    - does not offer sponsorship
+    - no sponsorship
+    - sponsorship is not available
+    - sponsorship not available
+    - without the need for sponsorship
+    - without requiring sponsorship
+    - right to work in the uk without sponsorship
+  clearance:
+    # SC (Security Check) roles are allowed. Only DV (Developed Vetting) is skipped.
+    - dv clearance
+    - dv cleared
+    - developed vetting
+    - edv clearance
+
+# Keep Claude usage low
+review:
+  # Jobs whose title matches but miss an essential requirement go to a review list,
+  # so you can check whether you really lack it or just forgot to add it to profile.md
+  missing_essentials_file: output/missing_essentials.md   # running list across all runs, newest first
+
+documents:
+  write_cover_letters: false   # Reed Easy Apply takes no cover letter; saves Claude usage
+  # CHANGE THIS if you like: the CV file name recruiters see. {name} is candidate_name, {role} the job title.
+  cv_upload_name: "{name}_CV_{role}.pdf"
+  restore_profile_cv_after_run: master_cvs/cv_data_engineering.docx   # put the general CV back on the Reed profile after each run
+
+llm:
+  score_model: haiku           # cheap model for scoring; only jobs that pass the rule filter
+  write_model: sonnet          # model for CVs and cover letters
+  rule_score_min_for_llm: 55   # jobs below this rule score never reach Claude
+  max_llm_scores_per_run: 80
+  max_tailor_per_run: 30       # stop tailoring after this many; the rest wait for the next run
+  max_rewrite_attempts: 2      # fix only the failing lines, not the whole document
+  cache_llm_results: true      # never re-score or re-write a job that's already done
+  check_apply_page_first: true # open the job page before tailoring; skip tailoring only if the listing is closed or gone (blocked or login jobs still get documents for manual applying)
+testing:
+  reuse_existing_documents: true  # dry runs reuse saved CVs and letters, no new Claude calls

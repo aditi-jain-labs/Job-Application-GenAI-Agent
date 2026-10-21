@@ -1,0 +1,52 @@
+# watch_companies.yaml: big employers to check daily (run.py --watch, the dashboard's Watch list tab).
+# The agent never applies to these: each match gets a tailored Word CV and a row in
+# output/watch_jobs_available.csv, and you apply by hand.
+# Readers exist for PwC UK, Deloitte UK and KPMG UK (jobagent/bigfour.py). Other companies are listed as
+# "set up a job alert" until a reader is written for their careers site.
+# The list is a working default: change these to suit you.
+
+output_file: output/watch_jobs_available.csv
+notify:
+  method: mac_notification   # "New jobs at watched companies: N"
+
+companies:
+  # Checked by jobagent/bigfour.py
+  - name: PwC UK
+    careers_url: https://jobs.pwc.co.uk/experienced/uk/en/search-results
+    ats: "Phenom site (jobs.pwc.co.uk), job list in https://jobs.pwc.co.uk/experienced/uk/en/sitemap.xml; robots.txt allows job pages, not /apply. Do NOT use experiencedcareers.pwc.co.uk (blocks bots)"
+  - name: Deloitte UK
+    careers_url: https://apply.deloitte.co.uk/UKCareers/SearchJobs
+    ats: "Deloitte UK careers site (apply.deloitte.co.uk), search pages and JobDetail pages load fine"
+  - name: KPMG UK
+    careers_url: https://www.kpmgcareers.co.uk/search/vacancies/
+    ats: "KPMG UK careers site (kpmgcareers.co.uk), search with ?searchtext=...&page=N; closed vacancies show a blank page"
+  - name: Uber
+  - name: Bolt
+  - name: Just Eat Takeaway.com
+  - name: Booking.com
+  - name: Trip.com
+  - name: Bloomberg
+  - name: Grant Thornton UK
+  - name: Morgan Stanley
+  - name: Bayer
+  - name: TikTok
+  - name: Google
+  - name: Meta
+  - name: HP
+  - name: Dell Technologies
+  - name: Adobe
+  - name: Starbucks
+  - name: Sainsbury's
+  - name: Tesco
+  - name: Bumble
+  - name: Tinder (Match Group)
+  - name: Hinge (Match Group)
+  - name: Revolut
+  - name: HSBC
+  - name: UNiDAYS
+  - name: Student Beans (Pion)
+  - name: Vinted
+  - name: NHS (NHS Jobs, data and analytics roles)
+  - name: Netflix
+  - name: Apple
+  - name: Bain & Company

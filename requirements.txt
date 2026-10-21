@@ -1,0 +1,13 @@
+requests>=2.31
+PyYAML>=6.0
+python-dotenv>=0.21
+beautifulsoup4>=4.12
+python-docx>=1.1
+pypdf>=4.0
+playwright>=1.40
+Pillow>=10.0
+docx2pdf>=0.1.8      # only used if LibreOffice is not installed (needs Microsoft Word)
+# Dashboard (install in its own virtual environment, see README)
+streamlit>=1.45
+ruamel.yaml>=0.18
+pandas>=2.0

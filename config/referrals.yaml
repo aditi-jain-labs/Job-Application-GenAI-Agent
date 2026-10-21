@@ -1,0 +1,17 @@
+# referrals.yaml: companies where someone can refer you. The agent checks their careers sites daily
+# (run.py --referrals, the dashboard's Referrals tab), writes a tailored CV for each matching role and lists it
+# in output/referral_jobs_available.csv. It NEVER applies to these: ask for the referral first.
+# This list is personal: keep the filled-in file private.
+
+output_file: output/referral_jobs_available.md   # newest first
+notify:
+  method: mac_notification   # "New referral jobs available: N"
+
+# Add one entry per company, using these fields:
+#   - name:          the company name
+#     contact:       who can refer you (optional, only for you)
+#     careers_url:   the careers or job search page. The job system is recognised from this link: readers exist
+#                    in jobagent/referrals.py for Workday, Oracle Recruiting Cloud, Amazon, Capgemini,
+#                    Goldman Sachs, iCIMS/Jibe and SuccessFactors sites. Others are listed as "set up a job alert".
+#     ats:           a note on the job system (put "set up a job alert" to skip a site that blocks scripts)
+companies: []
