@@ -1,4 +1,4 @@
-# Job agent
+# Job APPLICATION agent
 
 A personal job search assistant for the UK market. Every day it finds new jobs, checks them against your
 profile, writes a tailored CV for each good match and, on Reed only, applies for you within limits you set.
@@ -184,7 +184,6 @@ has started always finishes, and nothing is left half-submitted.
 * I set the safety rules: spacing between applications, daily caps, never getting past bot checks, and referral jobs never auto-applied.
 * I wrote the CV rules so the CV stays truthful.
 
-Built with Claude Code as my pair programmer.
 
 ## Future plans
 
@@ -194,7 +193,7 @@ Built with Claude Code as my pair programmer.
 ## Responsible use
 
 This is a personal tool for your own job search. You are responsible for every application it sends in your
-name: read the CVs it writes, keep `dry_run` on until you trust the output, and only apply to jobs you
+name: create the master CVs by hand in your own words, read the CVs it writes, keep `dry_run` on until you trust the output, and only apply to jobs you
 genuinely want and are qualified for. Respect each site's terms of use and robots rules, keep the rate limits,
 and don't use it to send bulk or low-quality applications. Automated applying may be against some job boards'
 terms; check before turning it on. The software comes with no warranty (see LICENSE).
