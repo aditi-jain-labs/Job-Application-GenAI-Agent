@@ -1,6 +1,6 @@
 """Steps 7 to 9: fill in applications with Playwright, using the saved browser profile.
 
-Safety rules (CLAUDE.md section 2):
+Safety rules (cv_rules_for_agent.md section 2):
 - A CAPTCHA, "are you human" or other bot check skips the job straight away. Nothing on the page is touched.
 - A login or account creation skips the job. The agent never types a password.
 - A closed listing, a page that fails to load, or any form question not covered by answers.yaml skips the job.

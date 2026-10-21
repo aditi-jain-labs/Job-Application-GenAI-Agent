@@ -3,7 +3,7 @@
 Add your own CVs as Word files (.docx). The agent copies the closest one for each job and rewrites its
 bullets, keeping your layout, fonts and section order.
 
-The default file names (docs/CLAUDE.md section 0 and jobagent/scoring.py):
+The default file names (docs/cv_rules_for_agent.md section 0 and jobagent/scoring.py):
 
 | File | Used for |
 |---|---|
@@ -12,7 +12,7 @@ The default file names (docs/CLAUDE.md section 0 and jobagent/scoring.py):
 | cv_data_science.docx | data scientist, ML engineer and analyst roles |
 | cv_consulting.docx | consultant, solutions architect and client facing roles |
 
-You can use fewer or different files: change the names in docs/CLAUDE.md section 0, `FAMILIES` in
+You can use fewer or different files: change the names in docs/cv_rules_for_agent.md section 0, `FAMILIES` in
 jobagent/scoring.py and `BASE_CVS` in jobagent/claude_score.py to match.
 
 Each CV needs these section headings, set in a Word "Heading" style: SUMMARY, PROFESSIONAL EXPERIENCE (a role

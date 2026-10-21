@@ -1,4 +1,4 @@
-"""Run state for the day, tailoring.md and report.md (CLAUDE.md section 6).
+"""Run state for the day, tailoring.md and report.md (cv_rules_for_agent.md section 6).
 
 output/YYYY-MM-DD/state.json keeps every tailoring and application result for the day, keyed by job.
 Runs merge into it, so `--only` updates the reports instead of replacing them.
@@ -85,7 +85,7 @@ def outcome(job: Job, state: dict) -> tuple[str, str]:
         return a["status"], a["reason"]
     t = state["tailoring"].get(job.key)
     if t and not t["ok"]:
-        return "skipped", "CV failed the CLAUDE.md checks: " + "; ".join(t["errors"][:3])
+        return "skipped", "CV failed the CV rules checks: " + "; ".join(t["errors"][:3])
     if job.status == "eligible":
         return ("deferred", "tailored, not applied this run") if t else ("deferred", "above threshold, not tailored this run")
     return job.status, job.reason

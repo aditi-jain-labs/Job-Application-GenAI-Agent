@@ -3,7 +3,7 @@
 Use this for tone and flow ONLY. The agent never copies its sentences.
 Replace it with a letter you like once the agent has written one you approve.
 Shape: opens with their need, one idea per paragraph, linked transitions, the close follows from the proof
-(CLAUDE.md section 5).
+(cv_rules_for_agent.md section 5).
 
 ---
 

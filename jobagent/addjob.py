@@ -1,7 +1,7 @@
 """run.py --job: score one job you found yourself and write a tailored CV for it.
 
 The job is a URL (a Reed link uses the Reed API; any other page is read as text) or a text file with the
-description. It goes through the same skip rules and Claude scoring as every other job (CLAUDE.md section 2).
+description. It goes through the same skip rules and Claude scoring as every other job (cv_rules_for_agent.md section 2).
 If nothing rules it out, the CV is written to output/manual/ as a Word file (run.py --pdf JOB_ID makes the PDF)
 and the job is added to output/manual_jobs.csv. Pages with a bot check or a login are not worked around:
 paste the description instead.
@@ -122,7 +122,7 @@ def run(source: str, title: str | None = None, company: str | None = None) -> di
     MANUAL_DIR.mkdir(parents=True, exist_ok=True)
     result = tailor.tailor(job, cfg, MANUAL_DIR, keep="docx")
     if not result["ok"]:
-        note = "; ".join(filter(None, [note, "CV failed the CLAUDE.md checks: " + "; ".join(result["errors"][:2])]))
+        note = "; ".join(filter(None, [note, "CV failed the CV rules checks: " + "; ".join(result["errors"][:2])]))
     _add_row(job, Path(result["cv"]), note)
     print(f"CV: {result['cv']}" + (f"\nNote: {note}" if note else ""))
     print(f"Make the PDF with: python3 run.py --pdf {job.job_id}")

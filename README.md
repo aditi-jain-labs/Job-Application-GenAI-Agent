@@ -48,7 +48,7 @@ Everything runs on your own computer. Claude (through the Claude Code CLI) does 
                                              |
                               5. score >= match_threshold ?
                                              |
-                   6. tailored CV from your closest base CV (rules in docs/CLAUDE.md)
+                   6. tailored CV from your closest base CV (rules in docs/cv_rules_for_agent.md)
                                              |
             +--------------------------------+-------------------------------+
             |                                                                |
@@ -139,7 +139,7 @@ has started always finishes, and nothing is left half-submitted.
 | `config/watch_companies.yaml` | big employers checked daily, never applied to |
 | `config/referrals.yaml` | companies where you can get a referral, never applied to |
 | `config/answers.yaml` | your answers to application form questions |
-| `docs/CLAUDE.md` | the rules Claude follows to score jobs and write CVs and cover letters |
+| `docs/cv_rules_for_agent.md` | the rules Claude follows to score jobs and write CVs and cover letters |
 | `docs/examples/cover_letter_example.md` | the tone and shape for cover letters (if switched on) |
 
 ## Customise it
@@ -152,8 +152,8 @@ has started always finishes, and nothing is left half-submitted.
 | Visa sponsorship and clearance skips | `config/config.yaml`: `skip_phrases` (remove the lists that don't apply to you) |
 | Your name and CV file name | `config/config.yaml`: `candidate.candidate_name`, `documents.cv_upload_name` |
 | Companies checked | `config/ats_companies.yaml`, `config/watch_companies.yaml`, `config/referrals.yaml` |
-| CV style, bullet format, banned words, cover letters | `docs/CLAUDE.md` (sections 0, 3, 4 and 5) |
-| Base CV file names and which roles use which | `docs/CLAUDE.md` section 0, `FAMILIES` in `jobagent/scoring.py`, `BASE_CVS` in `jobagent/claude_score.py` |
+| CV style, bullet format, banned words, cover letters | `docs/cv_rules_for_agent.md` (sections 0, 3, 4 and 5) |
+| Base CV file names and which roles use which | `docs/cv_rules_for_agent.md` section 0, `FAMILIES` in `jobagent/scoring.py`, `BASE_CVS` in `jobagent/claude_score.py` |
 | Skills the quick rule score looks for | `HAVE` and `MISSING` in `jobagent/scoring.py` (set up for an AWS data and AI engineer) |
 
 ## Safety rules
@@ -176,6 +176,20 @@ has started always finishes, and nothing is left half-submitted.
   marked unconfirmed and blocked until you check it.
 - **Polite reading:** careers sites are read through their public pages and job feeds only, with pauses between
   requests, and never through login or apply pages.
+
+## Design decisions
+
+* I designed the pipeline: find jobs, apply the rule filters, score with Claude, tailor the CV, apply or list for manual applying.
+* I chose a cheap model for scoring and a stronger one for writing, with caching, which cut LLM calls by about 95%.
+* I set the safety rules: spacing between applications, daily caps, never getting past bot checks, and referral jobs never auto-applied.
+* I wrote the CV rules so the CV stays truthful.
+
+Built with Claude Code as my pair programmer.
+
+## Future plans
+
+* Model routing: send each task to the cheapest model that can do it well.
+* More job data APIs to widen the search.
 
 ## Responsible use
 

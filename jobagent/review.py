@@ -1,4 +1,4 @@
-"""Missing essentials review list (CLAUDE.md section 2, config.yaml review.missing_essentials_file).
+"""Missing essentials review list (cv_rules_for_agent.md section 2, config.yaml review.missing_essentials_file).
 
 Jobs with a target title that were skipped for a missing essential, newest first, one row per job,
 so you can check whether you really lack the requirement or just haven't added it to profile.md.

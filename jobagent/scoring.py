@@ -159,7 +159,7 @@ def profile_years() -> int:
         from .settings import load_config
         _years["n"] = int((load_config().get("candidate") or {}).get("years_experience") or 0)
     return _years["n"]
-ESSENTIAL_CAP = 50      # CLAUDE.md section 2: any missing essential caps the score at 50
+ESSENTIAL_CAP = 50      # cv_rules_for_agent.md section 2: any missing essential caps the score at 50
 ESSENTIAL_WORDS = re.compile(r"essential|required|requirement|must|you\s+will\s+need|at\s+least\s+one", re.I)
 # HAVE entries that are not technical skills. A line that only matches these counts as soft.
 SOFT_TERMS = {
@@ -172,7 +172,7 @@ PROSE_QUAL = re.compile(
     r"successful\s+candidate|ideal\s+candidate|you\s+(will|should|must)\s+have|you('ll|\s+will)\s+(need|bring)|"
     r"you\s+have|we('re|\s+are)\s+looking\s+for|is\s+(also\s+)?(expected|essential|required|key)|must\s+have|required", re.I)
 
-# Title families, and the base CV each maps to (CLAUDE.md rule 0).
+# Title families, and the base CV each maps to (cv_rules_for_agent.md rule 0).
 ANALYST = re.compile(r"\b(data|insights?|product|bi|business\s+intelligence|ai|analytics)\s+analyst", re.I)
 FAMILIES = [
     (re.compile(r"forward\s+deployed|solutions?\s+engineer|customer\s+engineer|ml\s+platform|ai\s+engineer|genai|gen\s+ai|llm|ai\s+data\s+engineer|"
@@ -180,7 +180,7 @@ FAMILIES = [
                 r"ai\s+solutions?\s+(architect|consultant)", re.I), 20, "cv_ai_engineering.docx"),
     (re.compile(r"data\s+engineer|data\s+platform|analytics\s+engineer|big\s+data|spark|lakehouse|etl\s+developer|data\s+developer", re.I), 20, "cv_data_engineering.docx"),
     (re.compile(r"data\s+scien|machine\s+learning|ml\s+engineer|applied\s+scien|quant\w*\s+(researcher|developer)", re.I), 18, "cv_data_science.docx"),
-    # Analyst roles from search.titles only; Business, Claims or Financial Analyst are not targets (CLAUDE.md section 0)
+    # Analyst roles from search.titles only; Business, Claims or Financial Analyst are not targets (cv_rules_for_agent.md section 0)
     (ANALYST, 18, "cv_data_science.docx"),
     (re.compile(r"\b(data|ai|analytics|ml|cloud|life\s+sciences?|genai|technical)\b.{0,30}\bconsultant|consultant\b.{0,30}\b(data|ai|analytics|ml|genai)\b|"
                 r"solutions?\s+architect|technical\s+account|client\s+delivery", re.I), 16, "cv_consulting.docx"),
@@ -307,7 +307,7 @@ def line_management_line(title: str, description: str) -> str:
 
 
 def check_line_management(job: Job) -> bool:
-    """CLAUDE.md section 2: treat a line management requirement on a Lead role as a missing essential."""
+    """cv_rules_for_agent.md section 2: treat a line management requirement on a Lead role as a missing essential."""
     if job.status not in ("new", "eligible") and not job.reason.startswith("missing essential"):
         return False
     if any("management" in m["requirement"].lower() for m in job.missing_essentials or []):

@@ -201,7 +201,7 @@ def run(cfg: dict, wanted: list[str] | None = None) -> dict:
             continue                    # not marked seen: the next run tries again
         stats[job._company]["matches"] += 1
         notes = [bigfour.stretch(job._grade), "stretch: software engineering role" if scoring.is_software_role(job.title) else "",
-                 "" if result["ok"] else "CV failed the CLAUDE.md checks"]
+                 "" if result["ok"] else "CV failed the CV rules checks"]
         new_rows.append({"Date": today().isoformat(), "Posted": job.posted.isoformat() if job.posted else "",
                          "Company": job._company, "Job title": job.title, "Grade": job._grade, "Location": job.location,
                          "Score": job.score, "Link": job.link,

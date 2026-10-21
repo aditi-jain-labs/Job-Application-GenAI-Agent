@@ -6,7 +6,7 @@ rule score, then Claude for jobs at llm.rule_score_min_for_llm or above, and mat
 
 For each match it writes a tailored CV and reads the application form's questions from the job system
 (no browser). A job can be auto-applied only when every required question is covered by answers.yaml
-(CLAUDE.md section 1); otherwise it is listed for manual applying with the unanswered questions.
+(cv_rules_for_agent.md section 1); otherwise it is listed for manual applying with the unanswered questions.
 Applying itself is not built yet: a dry run reports what would happen, and a live run submits nothing.
 """
 import datetime as dt
@@ -341,7 +341,7 @@ def run(cfg: dict, days: int | None, dry_run: bool, wanted: list[str] | None = N
         res["cv"] = str(Path(t["cv"]).with_suffix(".pdf")) if t.get("ok") else ""
         stats[job.company]["matches"] += 1
         if not t.get("ok"):
-            res["status"], res["reason"] = "skipped", "CV failed the CLAUDE.md checks: " + "; ".join(t["errors"][:2])
+            res["status"], res["reason"] = "skipped", "CV failed the CV rules checks: " + "; ".join(t["errors"][:2])
         elif res.get("form_error"):
             res["status"], res["reason"] = "deferred", f"manual apply: {res['form_error']}"
         elif res["unanswered"]:

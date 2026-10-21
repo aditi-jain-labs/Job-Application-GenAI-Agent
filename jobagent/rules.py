@@ -1,4 +1,4 @@
-"""Dedupe and skip rules (CLAUDE.md section 2, phrases in config.yaml)."""
+"""Dedupe and skip rules (cv_rules_for_agent.md section 2, phrases in config.yaml)."""
 import datetime as dt
 import re
 

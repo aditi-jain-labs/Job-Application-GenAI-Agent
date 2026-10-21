@@ -9,13 +9,13 @@ from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG_DIR = ROOT / "config"            # every .yaml file
-DOCS_DIR = ROOT / "docs"                # CLAUDE.md (the CV and letter rules) and examples/
+DOCS_DIR = ROOT / "docs"                # cv_rules_for_agent.md (the CV and letter rules) and examples/
 CONFIG_PATH = CONFIG_DIR / "config.yaml"
 ANSWERS_PATH = CONFIG_DIR / "answers.yaml"
 REFERRALS_PATH = CONFIG_DIR / "referrals.yaml"
 ATS_COMPANIES_PATH = CONFIG_DIR / "ats_companies.yaml"
 WATCH_PATH = CONFIG_DIR / "watch_companies.yaml"
-RULES_PATH = DOCS_DIR / "CLAUDE.md"
+RULES_PATH = DOCS_DIR / "cv_rules_for_agent.md"
 EXAMPLE_LETTER = DOCS_DIR / "examples" / "cover_letter_example.md"
 PROFILE_PATH = ROOT / "profile.md"
 PROJECTS_DIR = ROOT / "projects"
